@@ -1,0 +1,25 @@
+/* http://www.design-seeds.com/summer/color-reflect-2/ */
+
+body {
+  background-color:#558592;  
+}
+
+
+.jumbotron {
+
+  margin: 60px 100px 30px 100px;
+  background-color: #FCEFD1;
+  color: #34515B;
+}
+
+.btn-default {
+
+  background-color: #D4E0DE
+
+;
+}
+
+.footer p span{
+
+  color: #F6B2A1;
+}
