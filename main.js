@@ -10,24 +10,19 @@
 
 
 
-function getLocation() {
-if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition);
-} else {
-    alert("no Address provided!");
-}
-}
+  if (navigator.geolocation) {
 
-function showPosition(position) {
-    lon = position.coords.latitude;
-    lat = position.coords.longitude;
-}
+    navigator.geolocation.getCurrentPosition(function(position) {
+      lon = position.coords.latitude;
+      lat = position.coords.longitude;
+    });
+
+  }
 
 /* var positionAPI = "http://maps.googleapis.com/maps/api/geocode/json?latlng=" + lat + "," + lon + "&sensor=true";
 $.getJSON(positionAPI, function (data) {
 
   location = data.results[3].formatted_address;
-
 
 }); */
 
@@ -35,7 +30,7 @@ $.getJSON(positionAPI, function (data) {
 
 
 
-  var weatherAPI = " http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&APPID=a58334c0eb6e894d9d377e657fc876ea&units=metric";
+  var weatherAPI = " https://api.forecast.io/forecast/a318a4996d504d004f217c64c53ae60f/" + lat + "," + lon;
 
 
     $.getJSON(weatherAPI, function(data) {
