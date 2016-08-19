@@ -16,13 +16,31 @@
     <div class="jumbotron">
     <div class="row">
       <div class="col-md-12 text-center">
-       <h1>Weather Report</h1>
+       <h1 id="location">Location</h1>
 
-          <h3 id="location">_theLocation</h3>
-            <h3 id="temperature">_temperature</h3>
+          <h3 id="locationAdd">locationZusatz</h3>
+            <h3 id="temperatureNow">_temperature</h3>
             <h3 id="graph"></h3>
+            <p id="icon">_icon</p>
 
-          <p id="icon">_icon</p>
+          <div class="col-md-4 text-center">
+            <h4 id="day1">Day1</h4>
+              <h4 id="temperature1">Min/Max</h4>
+              <p id="icon1">_icon</p>
+              <p id="rain1">Regenwahrscheinlichkeit</p>
+          </div>
+          <div class="col-md-4 text-center">
+            <h4 id="day2">Day2</h4>
+              <h4 id="temperature2">Min/Max</h4>
+              <p id="icon2">_icon</p>
+              <p id="rain2">Regenwahrscheinlichkeit</p>
+          </div>
+          <div class="col-md-4 text-center">
+            <h4 id="day3">Day3</h4>
+              <h4 id="temperature3">Min/Max</h4>
+              <p id="icon3">_icon</p>
+              <p id="rain3">Regenwahrscheinlichkeit</p>
+          </div>
            <button  type="button" class="btn btn-default">C°/ F</button>
           </div>
 
@@ -38,7 +56,7 @@
 
     </footer>
   </div>
-  
+
    <script   src="http://code.jquery.com/jquery-2.2.4.js"   integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="   crossorigin="anonymous"></script>
  <script src="main.js"></script>
 </body>
