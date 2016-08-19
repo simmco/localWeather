@@ -33,13 +33,18 @@ $.getJSON(positionAPI, function (data) {
   var weatherAPI = " https://api.forecast.io/forecast/a318a4996d504d004f217c64c53ae60f/" + lat + "," + lon;
 
 
-    $.getJSON(weatherAPI, function(data) {
+    $.getJSON(weatherAPI, {
+        units = si;
 
-      location = data.name;
-      temperature = Math.round(data.main.temp);
-      icon = "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
+
+
+
+    }) .done function(data) {
+
+      //location = data.name;
+      temperature = Math.round(data.currently.temperature);
+      icon = data.currently.icon;
       document.getElementById('location').innerHTML = location;
-
       document.getElementById('temperature').innerHTML = temperature + tempSign;
       document.getElementById('icon').innerHTML = " <img src='" + icon + "'>";
 
