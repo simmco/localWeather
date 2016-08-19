@@ -1,69 +1,69 @@
 (function() {
-  
+
+  var lat = '';
+  var lon = '';
+  var tempSign = " °C";
+  var temperature = '';
+  var location = '';
+  var icon = '';
+  var countryCode = '';
 
 
-  $.getJSON("http://ip-api.com/json", function(data) {
-    
-      var lon = "";
-      var lat = "";
-  
-      function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else { 
-           lon = data.lon;
-           lat = data.lat;
-    }
+
+function getLocation() {
+if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+} else {
+    alert("no Address provided!");
+}
 }
 
 function showPosition(position) {
     lon = position.coords.latitude;
     lat = position.coords.longitude;
 }
-    
 
-    var countryCode = data.countryCode;
-    var city = data.city;
+/* var positionAPI = "http://maps.googleapis.com/maps/api/geocode/json?latlng=" + lat + "," + lon + "&sensor=true";
+$.getJSON(positionAPI, function (data) {
 
-    var temp = '';
-    var temperature = '';
-    var location = '';
-    var icon = '';
+  location = data.results[3].formatted_address;
 
-    if (countryCode == "US") {
-      var weatherAPI = " http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&APPID=a58334c0eb6e894d9d377e657fc876ea&units=imperial";
-      temp = " °F";
-    } else {
-      var weatherAPI = " http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&APPID=a58334c0eb6e894d9d377e657fc876ea&units=metric";
-      temp = " °C"
 
-    }
+}); */
+
+
+
+
+
+  var weatherAPI = " http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&APPID=a58334c0eb6e894d9d377e657fc876ea&units=metric";
+
 
     $.getJSON(weatherAPI, function(data) {
 
       location = data.name;
       temperature = Math.round(data.main.temp);
       icon = "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
-      document.getElementById('location').innerHTML = location + " - " + city;
+      document.getElementById('location').innerHTML = location;
 
-      document.getElementById('temperature').innerHTML = temperature + temp;
+      document.getElementById('temperature').innerHTML = temperature + tempSign;
       document.getElementById('icon').innerHTML = " <img src='" + icon + "'>";
 
-      $(".btn").click(function() {
-        console.log(temp);
 
-        if (temp == " °C") {
-          temperature = Math.round(temperature * 9 / 5 + 32);
-          temp = " °F";
-          document.getElementById('temperature').innerHTML = temperature + temp;
-        } else {
-          temperature = Math.round((temperature - 32) * 5 / 9);
-          temp = " °C";
-          document.getElementById('temperature').innerHTML = temperature + temp;
-
-        }
-      });
 
     });
-  });
+
+    $(".btn").click(function() {
+
+      if (temp == " °C") {
+        temperature = Math.round(temperature * 9 / 5 + 32);
+        tempSign = " °F";
+        document.getElementById('temperature').innerHTML = temperature + tempSign;
+      } else {
+        temperature = Math.round((temperature - 32) * 5 / 9);
+        tempSign = " °C";
+        document.getElementById('temperature').innerHTML = temperature + tempSign;
+
+      }
+    });
+
 })();
