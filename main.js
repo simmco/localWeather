@@ -1,9 +1,27 @@
 (function() {
+  
+
 
   $.getJSON("http://ip-api.com/json", function(data) {
+    
+      var lon = "";
+      var lat = "";
+  
+      function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else { 
+           lon = data.lon;
+           lat = data.lat;
+    }
+}
 
-    var lon = data.lon;
-    var lat = data.lat;
+function showPosition(position) {
+    lon = position.coords.latitude;
+    lat = position.coords.longitude;
+}
+    
+
     var countryCode = data.countryCode;
     var city = data.city;
 
