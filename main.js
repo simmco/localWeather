@@ -118,9 +118,9 @@
     });
   }
 
-  $('#button').on('click touchstart', function() {
-    changeSign();
-    $(this).css('background-color', '#558592');
+  $('#button').on('touchstart click', function() {
+      changeSign();
+      $(this).css('background-color', '#558592');
   });
 
   function changeSign() {
