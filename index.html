@@ -7,57 +7,95 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="weather-icons.min.css">
   <script src="main.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<script src="https://rawgithub.com/darkskyapp/skycons/master/skycons.js"></script>
   <title>LocalWeather</title>
 </head>
 
 <body>
-  <div  class= "container">
+  <div class="container">
     <div class="jumbotron">
-    <div class="row">
-      <div class="col-md-12 text-center">
-       <h1 id="location">Location</h1>
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <button type="button" class="btn btn-default" id="button">°C / °F</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <h1 id="location">Location</h1>
 
           <h3 id="locationAdd">locationZusatz</h3>
-            <h3 id="temperatureNow">_temperature</h3>
-            <h3 id="graph"></h3>
-            <p id="icon">_icon</p>
 
-          <div class="col-md-4 text-center">
-            <h4 id="day1">Day1</h4>
-              <h4 id="temperature1">Min/Max</h4>
-              <p id="icon1">_icon</p>
-              <p id="rain1">Regenwahrscheinlichkeit</p>
+
+          <canvas id="icon" width="128" height="128"></canvas>
+          <br>
+          <div class="col-md-4">
+            <i class="wi wi-sunrise" id="sunrise-icon"></i>
+            <p id="sunrise"></p>
+            <br>
+            <i class="wi wi-sunset" id="sunset-icon"></i>
+            <p id="sunset"></p>
           </div>
-          <div class="col-md-4 text-center">
-            <h4 id="day2">Day2</h4>
-              <h4 id="temperature2">Min/Max</h4>
-              <p id="icon2">_icon</p>
-              <p id="rain2">Regenwahrscheinlichkeit</p>
+          <div class="col-md-4">
+            <h2 id="temperatureNow">_temperature</h2>
           </div>
-          <div class="col-md-4 text-center">
-            <h4 id="day3">Day3</h4>
-              <h4 id="temperature3">Min/Max</h4>
-              <p id="icon3">_icon</p>
-              <p id="rain3">Regenwahrscheinlichkeit</p>
-          </div>
-           <button  type="button" class="btn btn-default">C°/ F</button>
+          <div class="col-md-4">
+            <p id="moon"></p>
           </div>
 
 
- </div>
+        </div>
+      </div>
+      <div class="row" id="forecast">
+        <div class="col-md-4 text-center">
+          <h3 id="day1">Day1</h3>
+          <canvas id="icon1" width="75" height="75"></canvas>
+          <br>
+          <h4 id="temperature1">Min/Max</h4>
+          <p class=" wi wi-raindrop" id="raindrop1"></p>
+          <h4 id="rain1"> </h4>
+        </div>
+
+        <div class="col-md-4 text-center">
+          <h3 id="day2">Day2</h3>
+          <canvas id="icon2" width="75" height="75"></canvas>
+          <br>
+          <h4 id="temperature2">Min/Max</h4>
+          <p class=" wi wi-raindrop" id="raindrop2"></p>
+          <h4 id="rain2"> </h4>
+        </div>
+
+        <div class="col-md-4 text-center">
+          <h3 id="day3">Day3</h3>
+          <canvas id="icon3" width="75" height="75"></canvas>
+          <br>
+          <h4 id="temperature3">Min/Max</h4>
+          <p class=" wi wi-raindrop" id="raindrop3"></p>
+          <h4 id="rain3"> </h4>
+
+
+        </div>
+
+      </div>
     </div>
-      <footer class="footer col-md-12 text-center">
 
 
-        <p>by <span>simmco.</span></p>
+  </div>
+  </div>
+  <footer class="footer col-md-12 text-center">
 
 
+    <p>by <span>simmco.</span></p>
 
-    </footer>
+
+  </footer>
   </div>
 
-   <script   src="http://code.jquery.com/jquery-2.2.4.js"   integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="   crossorigin="anonymous"></script>
- <script src="main.js"></script>
+  <script   src="http://code.jquery.com/jquery-2.2.4.js"   integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="   crossorigin="anonymous"></script>
+<script src="main.js"></script>
 </body>
+
 </html>

@@ -1,25 +1,82 @@
 /* http://www.design-seeds.com/summer/color-reflect-2/ */
 
 body {
-  background-color:#558592;  
+  background-color: #558592;
+  font-family: 'Roboto', sans-serif;
 }
 
-
 .jumbotron {
-
   margin: 60px 100px 30px 100px;
   background-color: #FCEFD1;
   color: #34515B;
 }
 
 .btn-default {
-
-  background-color: #D4E0DE
-
-;
+  background-color: #558592;
+  color: orange;
 }
 
-.footer p span{
-
+.footer p span {
   color: #F6B2A1;
+}
+
+#forecast {
+  margin: 30px 10px 30px 10px;
+  border-top: 3px solid #558592;
+}
+
+#rain1 {
+  display: inline-block;
+}
+
+#raindrop1 {
+  display: inline-block;
+}
+
+#rain2 {
+  display: inline-block;
+}
+
+#raindrop2 {
+  display: inline-block;
+}
+
+#rain3 {
+  display: inline-block;
+}
+
+#raindrop3 {
+  display: inline-block;
+}
+
+.wi-sunrise {
+  font-size: 30px;
+  color: orange;
+}
+
+.wi-sunset {
+  font-size: 30px;
+  color: orange;
+}
+
+#sunrise-icon {
+  display: inline-block;
+}
+
+#sunrise {
+  display: inline-block;
+}
+
+#sunset-icon {
+  display: inline-block;
+}
+
+#sunset {
+  display: inline-block;
+}
+
+#moon {
+  font-size: 70px;
+  color: white;
+  border:
 }
