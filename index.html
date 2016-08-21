@@ -9,81 +9,121 @@
   <link rel="stylesheet" href="main.css">
   <script src="main.js"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons-wind.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 <script src="https://rawgithub.com/darkskyapp/skycons/master/skycons.js"></script>
   <title>LocalWeather</title>
 </head>
 
+<!-- <button type="button" class="btn btn-default" id="button">°C / °F</button> -->
+
 <body>
   <div class="container">
     <div class="jumbotron">
       <div class="row">
-        <div class="col-md-12 text-center">
-          <button type="button" class="btn btn-default" id="button">°C / °F</button>
+        <div class="col-md-12">
+          <div class="col-md-8 text-center">
+
+           <div class="col-md-12" id="locationDate">
+                <h3 id="location">Location</h3>
+                <br>
+                <h2 id="day"></h2>
+             <br>
+             <p id="timeData"></p>
+              </div>
+            <div class="col-md-12" id="weatherInfoNow">
+
+            </div>
+
+            <div class="col-md-4" id="weatherInfoNowLeft">
+              <p id="humidity"></p> <i class=" wi wi-humidity" id="humidityDrop"></i>
+              <br>
+              <br>
+              <i class="" id="direction"></i>
+              <br>
+              <br>
+              <p id="wind"></p> <i class=" wi wi-strong-wind" id="windIcon"></i>
+            </div>
+            <div class="col-md-4" id="weatherInfoNowCenter">
+
+              <canvas id="icon" width="128" height="128"></canvas>
+              <h2 id="temperatureNow">_temp</h2>
+
+            </div>
+            <div class="col-md-4" id="weatherInfoNowRight">
+              <p id="moon"></p>
+              <br>
+              <br>
+              <i class="wi wi-sunrise" id="sunrise-icon"></i>
+              <p id="sunrise"></p>
+              <br>
+              <br>
+              <i class="wi wi-sunset" id="sunset-icon"></i>
+              <p id="sunset"></p>
+
+            </div>
+
+            <div class="row">
+              <div class="col-md-12" id="forecastToday">
+                <div class="col-md-4">
+                  <p id="time4h">4Hours</p>
+                  <canvas id="icon4h" width="70" height="70"></canvas>
+                  <h2 id="temperature4h">_temperature</h2>
+                </div>
+                <div class="col-md-4">
+                  <p id="time8h">8Hours</p>
+                  <canvas id="icon8h" width="70" height="70"></canvas>
+                  <h2 id="temperature8h">_temperature</h2>
+                </div>
+                <div class="col-md-4">
+                  <p id="time12h">12Hours</p>
+                  <canvas id="icon12h" width="70" height="70"></canvas>
+                  <h2 id="temperature12h">_temperature</h2>
+                </div>
+              </div>
+            </div>
+
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12 text-center">
-          <h1 id="location">Location</h1>
-
-          <h3 id="locationAdd">locationZusatz</h3>
-
-
-          <canvas id="icon" width="128" height="128"></canvas>
+        <!--col-md-8-->
+        <div class="col-md-3 col-md-offset-1 text-center" id="forecast">
+         <!-- <h2>Forecast</h2>-->
           <br>
-          <div class="col-md-4">
-            <i class="wi wi-sunrise" id="sunrise-icon"></i>
-            <p id="sunrise"></p>
-            <br>
-            <i class="wi wi-sunset" id="sunset-icon"></i>
-            <p id="sunset"></p>
-          </div>
-          <div class="col-md-4">
-            <h2 id="temperatureNow">_temperature</h2>
-          </div>
-          <div class="col-md-4">
-            <p id="moon"></p>
-          </div>
-
-
-        </div>
-      </div>
-      <div class="row" id="forecast">
-        <div class="col-md-4 text-center">
           <h3 id="day1">Day1</h3>
           <canvas id="icon1" width="75" height="75"></canvas>
           <br>
           <h4 id="temperature1">Min/Max</h4>
           <p class=" wi wi-raindrop" id="raindrop1"></p>
           <h4 id="rain1"> </h4>
-        </div>
-
-        <div class="col-md-4 text-center">
+          <br>
+          <p class="wi wi-day-sunny" id="sunshineIcon1"></p>
+          <h4 id="sunshine1"> </h4>
           <h3 id="day2">Day2</h3>
           <canvas id="icon2" width="75" height="75"></canvas>
           <br>
           <h4 id="temperature2">Min/Max</h4>
           <p class=" wi wi-raindrop" id="raindrop2"></p>
           <h4 id="rain2"> </h4>
-        </div>
-
-        <div class="col-md-4 text-center">
+           <br>
+          <p class="wi wi-day-sunny" id="sunshineIcon2"></p>
+          <h4 id="sunshine2"> </h4>
           <h3 id="day3">Day3</h3>
           <canvas id="icon3" width="75" height="75"></canvas>
           <br>
           <h4 id="temperature3">Min/Max</h4>
           <p class=" wi wi-raindrop" id="raindrop3"></p>
           <h4 id="rain3"> </h4>
-
-
+          <br>
+          <p class="wi wi-day-sunny" id="sunshineIcon3"></p>
+          <h4 id="sunshine3"> </h4>
         </div>
-
       </div>
+      <!-- row -->
     </div>
+    <!-- jumbotron -->
+  </div>
+  <!-- container -->
 
 
-  </div>
-  </div>
   <footer class="footer col-md-12 text-center">
 
 
@@ -93,8 +133,7 @@
   </footer>
   </div>
 
-  <script   src="https://code.jquery.com/jquery-2.2.4.js"   integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="   crossorigin="anonymous"></script>
-<script src="main.js"></script>
+
 </body>
 
 </html>
