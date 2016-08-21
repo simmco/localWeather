@@ -111,11 +111,19 @@
         var formattedTime = hours + ':' + minutes.substr(-2);
         return formattedTime;
       }
-      function getDay(unix){
+      function getWeekday(unix){
         var date = new Date(unix * 1000);
         var day = date.getDay();
         return day;
       }
+      function getDay (){
+        var date = new Date(unix * 1000);
+        var weekday = date.getDay();
+        var year = date.getFullYear();
+        var formatted = (weekday + 1) + "." + year;
+        return formatted;
+      }
+
       // time - sunrise & sunset
       var sunrise = data.daily.data[0].sunriseTime;
       var sunset = data.daily.data[0].sunsetTime;
@@ -133,9 +141,9 @@
       document.getElementById('time12h').innerHTML = "<u>" + getTime(time12h)+ "</u>";
 
       //time - days
-      var day = getDay(timeData);
-      var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-      // document.getElementById('day').innerHTML = "<u>" + days[timeData.getDay()] + ", " + timeData.getDate() + "." + (timeData.getMonth() + 1) + "." + timeData.getFullYear() + "</u>";
+      var day = getWeekday(timeData);
+      var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday'];
+      document.getElementById('day').innerHTML = "<u>" + days[day] + ", " + getDay(timeData) "</u>";
       document.getElementById('day1').innerHTML = "<u>" + days[day + 1] + "</u>";
       document.getElementById('day2').innerHTML = "<u>" +days[day + 2] + "</u>";
       document.getElementById('day3').innerHTML = "<u>" +days[day + 3] + "</u>";
