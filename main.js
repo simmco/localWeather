@@ -116,7 +116,7 @@
         var day = date.getDay();
         return day;
       }
-      function getDay (){
+      function getDay (unix){
         var date = new Date(unix * 1000);
         var weekday = date.getDay();
         var year = date.getFullYear();
