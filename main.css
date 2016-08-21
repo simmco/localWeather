@@ -20,9 +20,39 @@ body {
   color: #F6B2A1;
 }
 
+#locationDate {
+  padding-bottom: 10px;
+
+}
+
+#weatherInfoNow {
+
+  padding-top: 20px;
+   border-top: 2px solid #558592;
+}
+#weatherInfoNowLeft {
+  padding-top:30px;
+}
+#weatherInfoNowCenter {
+ border-left: 2px solid #558592;
+ border-right: 2px solid #558592;
+}
+
+#temperatureNow {
+  font-size:50px;
+}
+
+#timeData {
+  font-size:30px;
+}
+
 #forecast {
-  margin: 30px 10px 30px 10px;
-  border-top: 3px solid #558592;
+  border-left: 2px solid #558592;
+}
+#forecastToday {
+   margin-top: 30px;
+  padding-top: 30px;
+   border-top: 2px solid #558592;
 }
 
 #rain1 {
@@ -47,6 +77,31 @@ body {
 
 #raindrop3 {
   display: inline-block;
+}
+
+#sunshineIcon1 {
+  display: inline-block;
+  color:orange;
+}
+
+#sunshine1 {
+  display:inline-block;
+}
+#sunshineIcon2 {
+  display: inline-block;
+  color:orange;
+}
+
+#sunshine2 {
+  display:inline-block;
+}
+#sunshineIcon3 {
+  display: inline-block;
+  color:orange;
+}
+
+#sunshine3 {
+  display:inline-block;
 }
 
 .wi-sunrise {
@@ -75,8 +130,31 @@ body {
   display: inline-block;
 }
 
+#humidityDrop {
+  display: inline-block;
+  font-size: 35px;
+}
+
+#humidity {
+  display: inline-block;
+  font-size: 25px;
+}
+#windIcon {
+  display: inline-block;
+  font-size: 35px;
+}
+
+#wind {
+  display: inline-block;
+  font-size: 30px;
+}
+
 #moon {
   font-size: 70px;
-  color: white;
-  border:
+  color: black;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+#direction {
+  font-size:50px;
 }
