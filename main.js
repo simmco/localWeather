@@ -111,6 +111,10 @@
         var formattedTime = hours + ':' + minutes.substr(-2);
         return formattedTime;
       }
+      function getDay(unix){
+        var date = new Date(unix * 1000);
+        var day = date.getDay();
+      }
       // time - sunrise & sunset
       var sunrise = data.daily.data[0].sunriseTime;
       var sunset = data.daily.data[0].sunsetTime;
@@ -128,13 +132,11 @@
       document.getElementById('time12h').innerHTML = "<u>" + getTime(time12h)+ "</u>";
 
       //time - days
-      var hour = timeData.getHours();
-      var minutes = timeData.getMinutes();
       var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-      document.getElementById('day').innerHTML = "<u>" + days[timeData.getDay()] + ", " + timeData.getDate() + "." + (timeData.getMonth() + 1) + "." + timeData.getFullYear() + "</u>";
-      document.getElementById('day1').innerHTML = "<u>" + days[timeData.getDay() + 1] + "</u>";
-      document.getElementById('day2').innerHTML = "<u>" +days[timeData.getDay() + 2] + "</u>";
-      document.getElementById('day3').innerHTML = "<u>" +days[timeData.getDay() + 3] + "</u>";
+      // document.getElementById('day').innerHTML = "<u>" + days[timeData.getDay()] + ", " + timeData.getDate() + "." + (timeData.getMonth() + 1) + "." + timeData.getFullYear() + "</u>";
+      document.getElementById('day1').innerHTML = "<u>" + days[(getDay(timeData) + 1)] + "</u>";
+      document.getElementById('day2').innerHTML = "<u>" +days[(getDay(timeData) + 2)] + "</u>";
+      document.getElementById('day3').innerHTML = "<u>" +days[(getDay(timeData) + 3)] + "</u>";
 
       //moon
       var moonPhase = data.daily.data[0].moonPhase;
