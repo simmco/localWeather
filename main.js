@@ -142,8 +142,9 @@
 
       //time - days
       var day = getWeekday(timeData);
+      var date = getDay(timeData);
       var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday'];
-      document.getElementById('day').innerHTML = "<u>" + days[day] + ", " + getDay(timeData) "</u>";
+      document.getElementById('day').innerHTML = "<u>" + days[day] + ", " + date + "</u>";
       document.getElementById('day1').innerHTML = "<u>" + days[day + 1] + "</u>";
       document.getElementById('day2').innerHTML = "<u>" +days[day + 2] + "</u>";
       document.getElementById('day3').innerHTML = "<u>" +days[day + 3] + "</u>";
