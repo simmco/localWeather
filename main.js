@@ -43,6 +43,7 @@
     console.log(weatherAPI)
     $.getJSON(weatherAPI, function(data) {
 
+      //temperature
       temperature = Math.round(data.currently.temperature);
       var temperature4h = Math.round(data.hourly.data[4].temperature);
       var temperature8h = Math.round(data.hourly.data[8].temperature);
@@ -60,6 +61,7 @@
       document.getElementById('temperature1').innerHTML = tempMax1 + " / " + tempMin1 + tempSign;
       document.getElementById('temperature2').innerHTML = tempMax2 + " / " + tempMin2 + tempSign;
       document.getElementById('temperature3').innerHTML = tempMax3 + " / " + tempMin3 + tempSign;
+
       //rain
       var precip1 = "   " + ((Math.round(data.daily.data[1].precipProbability * 10) / 10) * 100) + " %";
       var precip2 = "   " + ((Math.round(data.daily.data[2].precipProbability * 10) / 10) * 100) + " %";
@@ -67,6 +69,7 @@
       document.getElementById('rain1').innerHTML = precip1;
       document.getElementById('rain2').innerHTML = precip2;
       document.getElementById('rain3').innerHTML = precip3;
+
       //sunshineDay
       var sunshine1 = " " + (100 - ((Math.round(data.daily.data[1].cloudCover * 10) / 10) * 100)) + " %";
       var sunshine2 = " " + (100 - ((Math.round(data.daily.data[2].cloudCover * 10) / 10) * 100)) + " %";
@@ -74,9 +77,9 @@
       document.getElementById('sunshine1').innerHTML = sunshine1;
       document.getElementById('sunshine2').innerHTML = sunshine2;
       document.getElementById('sunshine3').innerHTML = sunshine3;
+
       //location
       document.getElementById('location').innerHTML = location;
-
 
       //icons - skycons
       var icon = data.currently.icon;
@@ -98,9 +101,7 @@
       skycons.set("icon12h", icon12h);
       skycons.play();
 
-      // get times
-
-
+      // time - get time
       function getTime(unix) {
         var date = new Date(unix * 1000);
         // Hours part from the timestamp
@@ -110,22 +111,30 @@
         var formattedTime = hours + ':' + minutes.substr(-2);
         return formattedTime;
       }
-      //sunrise & sunset
+      // time - sunrise & sunset
       var sunrise = data.daily.data[0].sunriseTime;
       var sunset = data.daily.data[0].sunsetTime;
       document.getElementById('sunrise').innerHTML = getTime(sunrise);
       document.getElementById('sunset').innerHTML = getTime(sunset);
 
-      //timeData
+      //time - timeData
       var timeData = data.currently.time;
       var time4h = data.hourly.data[4].time;
       var time8h = data.hourly.data[8].time;
       var time12h = data.hourly.data[12].time;
-
       document.getElementById('timeData').innerHTML = getTime(timeData) ;
-        document.getElementById('time4h').innerHTML = "<u>" + getTime(time4h)+ "</u>";
-        document.getElementById('time8h').innerHTML =  "<u>" +getTime(time8h)+ "</u>";
-        document.getElementById('time12h').innerHTML = "<u>" + getTime(time12h)+ "</u>";
+      document.getElementById('time4h').innerHTML = "<u>" + getTime(time4h)+ "</u>";
+      document.getElementById('time8h').innerHTML =  "<u>" +getTime(time8h)+ "</u>";
+      document.getElementById('time12h').innerHTML = "<u>" + getTime(time12h)+ "</u>";
+
+      //time - days
+      var hour = timeData.getHours();
+      var minutes = timeData.getMinutes();
+      var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+      document.getElementById('day').innerHTML = "<u>" + days[timeData.getDay()] + ", " + timeData.getDate() + "." + (timeData.getMonth() + 1) + "." + timeData.getFullYear() + "</u>";
+      document.getElementById('day1').innerHTML = "<u>" + days[timeData.getDay() + 1] + "</u>";
+      document.getElementById('day2').innerHTML = "<u>" +days[timeData.getDay() + 2] + "</u>";
+      document.getElementById('day3').innerHTML = "<u>" +days[timeData.getDay() + 3] + "</u>";
 
       //moon
       var moonPhase = data.daily.data[0].moonPhase;
@@ -220,7 +229,6 @@
       document.getElementById('moon').className = moonClass;
 
      // humidity
-
       var humidity = data.currently.humidity *100;
       document.getElementById('humidity').innerHTML = humidity;
 
@@ -228,7 +236,6 @@
      var windSpeed = data.currently.windSpeed;
      var windBearing = data.currently.windBearing;
      var beaufortWind = 0;
-
      function getBeaufortWind (wind) {
        if (wind <= 0.2) {
          beaufortWind = 0;
@@ -287,23 +294,23 @@
        else if (bearing > 214 && bearing <=236.5) {
          direction = "wi wi-wind from-225-deg"
        }
-else if (bearing > 236.5 && bearing <=259) {
+       else if (bearing > 236.5 && bearing <=259) {
          direction = "wi wi-wind from-248-deg"
        }
-else if (bearing > 259 && bearing <=281.5) {
+       else if (bearing > 259 && bearing <=281.5) {
          direction = "wi wi-wind from-270-deg"
        }
-else if (bearing > 281.5 && bearing <=304) {
+       else if (bearing > 281.5 && bearing <=304) {
          direction = "wi wi-wind from-203-deg"
        }
-else if (bearing > 304 && bearing <=324.5) {
+       else if (bearing > 304 && bearing <=324.5) {
          direction = "wi wi-wind from-203-deg"
        }
-else if (bearing > 324.5 && bearing <=347) {
+       else if (bearing > 324.5 && bearing <=347) {
          direction = "wi wi-wind from-203-deg"
        }
-else {
-	direction = "wi wi-wind from-0-deg";
+       else {
+	        direction = "wi wi-wind from-0-deg";
      }
      }
       getBeaufortWind(windSpeed);
@@ -313,6 +320,7 @@ else {
     });
   }
 
+  // change celsius to fahrenheit
   $('#button').on('click touchstart', function() {
     changeSign();
     $(this).css('background-color', '#558592');
@@ -348,16 +356,4 @@ else {
 
     }
   }
-
-  var now = new Date();
-  var hour = now.getHours();
-  var minutes = now.getMinutes();
-  var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-  document.getElementById('day').innerHTML = "<u>" + days[now.getDay()] + ", " + now.getDate() + "." + (now.getMonth() + 1) + "." + now.getFullYear() + "</u>";
-  document.getElementById('day1').innerHTML = "<u>" + days[now.getDay() + 1] + "</u>";
-  document.getElementById('day2').innerHTML = "<u>" +days[now.getDay() + 2]+ "</u>";
-  document.getElementById('day3').innerHTML = "<u>" +days[now.getDay() + 3]+ "</u>";
-  //console.log(hour);
-  //console.log(minutes);
-
 })();
