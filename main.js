@@ -135,9 +135,9 @@
       var day = getDay(timeData);
       var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
       // document.getElementById('day').innerHTML = "<u>" + days[timeData.getDay()] + ", " + timeData.getDate() + "." + (timeData.getMonth() + 1) + "." + timeData.getFullYear() + "</u>";
-      document.getElementById('day1').innerHTML = "<u>" + days[day + 1)] + "</u>";
-      document.getElementById('day2').innerHTML = "<u>" +days[day + 2)] + "</u>";
-      document.getElementById('day3').innerHTML = "<u>" +days[day + 3)] + "</u>";
+      document.getElementById('day1').innerHTML = "<u>" + days[day + 1] + "</u>";
+      document.getElementById('day2').innerHTML = "<u>" +days[day + 2] + "</u>";
+      document.getElementById('day3').innerHTML = "<u>" +days[day + 3] + "</u>";
 
       //moon
       var moonPhase = data.daily.data[0].moonPhase;
