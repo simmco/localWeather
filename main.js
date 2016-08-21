@@ -114,6 +114,7 @@
       function getDay(unix){
         var date = new Date(unix * 1000);
         var day = date.getDay();
+        return day;
       }
       // time - sunrise & sunset
       var sunrise = data.daily.data[0].sunriseTime;
