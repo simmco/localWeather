@@ -117,12 +117,13 @@
         return day;
       }
       function getDay (unix){
-        var date = new Date(unix * 1000);
-        var weekday = date.getDay();
-        var year = date.getFullYear();
-        var formatted = (weekday + 1) + "." + year;
-        return formatted;
-      }
+      var date = new Date(unix * 1000);
+      var day = date.getDate();
+      var month = date.getMonth();
+      var year = date.getFullYear();
+      var formatted = day + "." + (month +1) + "." + year;
+      return formatted;
+    }
 
       // time - sunrise & sunset
       var sunrise = data.daily.data[0].sunriseTime;
