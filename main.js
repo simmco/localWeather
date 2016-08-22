@@ -14,6 +14,7 @@
   var locationAdd = '';
   var icon = '';
 
+ //get latitude & longitude
   if (navigator.geolocation) {
 
     navigator.geolocation.getCurrentPosition(function(position) {
@@ -26,7 +27,7 @@
   } else {
     alert("no Location provided!")
   }
-
+  // get location
   function getPosition(latiude, longitude) {
     var positionAPI = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + latiude + "," + longitude;
     console.log(positionAPI);
@@ -36,7 +37,7 @@
 
     });
   }
-
+// api-call forecast.io
   function getWeather(latitude, longitude) {
     var weatherAPI = " https://api.forecast.io/forecast/a318a4996d504d004f217c64c53ae60f/" + latitude + "," + longitude + "?callback=?&units=si";
 
@@ -243,7 +244,7 @@
       document.getElementById('moon').className = moonClass;
 
      // humidity
-      var humidity = data.currently.humidity *100;
+      var humidity = Math.round(data.currently.humidity *100);
       document.getElementById('humidity').innerHTML = humidity;
 
      // wind
